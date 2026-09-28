@@ -1,0 +1,29 @@
+version: '3.5'
+
+services:
+  max2tg:
+    build: .
+    restart: unless-stopped
+    environment:
+      MAX_TOKEN:
+      MAX_DEVICE_ID:
+      MAX_CHAT_IDS:
+      MAX_PROXY:
+      TG_BOT_TOKEN:
+      TG_CHAT_ID:
+      TG_PROXY:
+      TG_READ_TIMEOUT:
+      TG_WRITE_TIMEOUT:
+      TG_MEDIA_WRITE_TIMEOUT:
+      TG_BASE_URL:
+      TG_ALLOWED_USER_ID:
+      DEBUG:
+      REPLY_ENABLED:
+      LOG_DIR: /app/logs
+    volumes:
+      - ./logs:/app/logs
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
